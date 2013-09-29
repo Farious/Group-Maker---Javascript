@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html> 
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
+	
+	<title>Lista Comunidade</title>
+	<link rel="stylesheet"  type="text/css" href="css/themes/default/jquery.mobile-1.3.0.min.css" />
+	<link rel="stylesheet"  type="text/css" href="css/jquery.dataTables.css" />
+	<link rel="stylesheet"  type="text/css" href="css/jquery.dataTables_themeroller.css" />
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/jquery.csv-0.71.min.js"></script>
+	
+	<script type="text/javascript" src="lista.txt"></script>
+	
+	<script type="text/javascript">		
+	var listaArray = [];
+	var numGrupos = 3;	
+	
+	for (var i=0;i<lista.length;i++)
+	{ 
+		listaArray.push([lista[i], 0]);
+	}
+	
+	init = function(){
+		$('#lista').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+		$('#example').dataTable( {
+			"iDisplayLength": listaArray.length,
+			"aaData": listaArray,
+			"aoColumns": [
+				{ "sTitle": "Pessoa" },
+				{ "sTitle": "Grupo" }
+			]
+		} );
+	}
+	
+	gerar = function(){
+		var tamanho = listaArray.length;
+		
+		for (var i=0;i<tamanho;i++)
+		{ 
+			var auxNome = listaArray[i];
+			var auxNewPos = Math.floor((Math.random()*tamanho));
+			
+			listaArray[i] = listaArray[auxNewPos];
+			listaArray[auxNewPos] = auxNome;
+		}
+		
+		$('#grupos').text("Núm. de grupos: " + numGrupos);
+		
+		for (var i=0;i<tamanho;i++)
+		{
+			var newGroup = -1;
+			var toContinue = true;
+			var constantVal = tamanho / numGrupos;
+			
+			for(var j=1; j <= numGrupos && toContinue; j++)
+			{
+				if ( (i+1) <= Math.floor(j * constantVal))
+				{
+					newGroup = j;
+					toContinue = false;
+				}
+			}
+			
+			listaArray[i][1] = newGroup;
+		}
+		
+		$('#example').dataTable().fnClearTable();
+		$('#example').dataTable().fnAddData(listaArray);
+	}
+	
+	moreGroups = function() {
+		numGrupos += 1;
+		
+		if( numGrupos > listaArray.length)
+			numGrupos = listaArray.length;
+		
+		gerar();
+	}
+	
+	lessGroups = function() {
+		numGrupos -= 1;
+		
+		if( numGrupos < 1)
+			numGrupos = 1;
+			
+		gerar();
+	}
+	
+	</script>
+	</head> 
+<body onLoad="init()"> 
+
+<!-- Pagina de entrada - All is okay here --> 
+<div id="initial">
+		<div id="lista">
+		</div>
+		
+		<div id="botao" >
+		<button onclick="gerar()">Gerar Grupos</button>
+		<p id="grupos"> Núm. de grupos: </p>
+		
+		<button id="mais" onclick="moreGroups()">Mais</button>
+		<button id="menos" onclick="lessGroups()">Menos</button>
+		</div>
+</div><!-- /page -->
+</body>
+</html>
