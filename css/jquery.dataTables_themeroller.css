@@ -61,6 +61,8 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
  */
 .dataTables_length {
 	float: left;
+	visibility: hidden;
+	display: none;
 }
 
 
@@ -70,6 +72,8 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 .dataTables_filter {
 	float: right;
 	text-align: right;
+	visibility: hidden;
+	display: none;
 }
 
 

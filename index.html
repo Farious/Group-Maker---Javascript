@@ -93,18 +93,16 @@
 	</head> 
 <body onLoad="init()"> 
 
-<!-- Pagina de entrada - All is okay here --> 
-<div id="initial">
+	<!-- Pagina de entrada - All is okay here --> 
+	<div id="initial">		
+		<div class="options">
+			<button id="botao" onclick="gerar()">Gerar Grupos</button>
+			<button id="mais" onclick="moreGroups()">Mais</button>
+			<button id="menos" onclick="lessGroups()">Menos</button>
+			<p id="grupos"> Núm. de grupos: </p>
+		</div>
 		<div id="lista">
 		</div>
-		
-		<div id="botao" >
-		<button onclick="gerar()">Gerar Grupos</button>
-		<p id="grupos"> Núm. de grupos: </p>
-		
-		<button id="mais" onclick="moreGroups()">Mais</button>
-		<button id="menos" onclick="lessGroups()">Menos</button>
-		</div>
-</div><!-- /page -->
+	</div><!-- /page -->
 </body>
 </html>
