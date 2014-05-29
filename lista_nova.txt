@@ -1,7 +1,7 @@
 var lista = ["Ada Maria",
 		"Adélia Faria",
 		"Adriano",
-//		"Alcina Maia",
+		"Alcina Maia",
 		"Ana Luisa Corte-Real",
 		"Ana Maria Colaço",
 		"Ana Raquel Granja",
@@ -59,8 +59,13 @@ var lista = ["Ada Maria",
 		"Rui Martins",
 		"Samuel Marques",
 		"Sandra Vanessa",
+		"Sandro Simões",
 		"Sara Fernandes",
 		"Sara Gomes",
 		"Simão Silva",
-		"Teresa Sinfrónio"
+		"Teresa Sinfrónio",
+		"Pedro Seixas e Sofia Seixas",
+		"Pedro Trindade",
+		"Ascenção",
+		"Mª José Seixas e Luís Seixas"
 		];
