@@ -219,11 +219,15 @@ table.dataTable thead td:active {
 	-webkit-overflow-scrolling: touch;
 }
 
-#mais, #menos, #grupos, #botao {
+#mais, #menos, #grupos, #botao, #chcLeader {
 	float: left;
 	margin: 16px 0px;
 }
 
 .options {
 	margin: 16px 0px;
+}
+
+#example > tbody > tr > td:nth-child(2) {
+	text-align: right;
 }

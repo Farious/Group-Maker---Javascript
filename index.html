@@ -20,7 +20,7 @@
 	
 	for (var i=0;i<lista.length;i++)
 	{ 
-		listaArray.push([lista[i], 0]);
+		listaArray.push([lista[i], 0, lista[i].indexOf("&") != -1]);
 	}
 	
 	init = function(){
@@ -30,7 +30,8 @@
 			"aaData": listaArray,
 			"aoColumns": [
 				{ "sTitle": "Pessoa" },
-				{ "sTitle": "Grupo" }
+				{ "sTitle": "Grupo" },
+				//{ "sTitle": "Lider" }
 			]
 		} );
 	}
@@ -89,6 +90,12 @@
 		gerar();
 	}
 	
+	leaderGroups = function() {
+		console.log("Hey");
+		//$("#example > tbody > tr > td:nth-child(1)")[8].textContent;
+		gerar();
+	}
+	
 	</script>
 	</head> 
 <body onLoad="init()"> 
@@ -100,6 +107,7 @@
 			<button id="mais" onclick="moreGroups()">Mais</button>
 			<button id="menos" onclick="lessGroups()">Menos</button>
 			<p id="grupos"> Núm. de grupos: </p>
+			<div id="chcLeader" ><input type="checkbox" onclick="leaderGroups()"> Casais como cabeça de grupo</div>
 		</div>
 		<div id="lista">
 		</div>
